@@ -1,5 +1,6 @@
 import streamlit as st
 from PIL import Image
+from matplotlib import cm
 import torch
 import torchvision
 import cv2
@@ -8,6 +9,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle
 from torchvision.ops import nms
+import base64
+from io import BytesIO
 ############ Model Loading ######################
 target2label = {0: 'background',1: 'fruit_woodiness',2: 'fruit_brownspot',3: 'fruit_healthy'}
 def get_model():
@@ -35,6 +38,12 @@ def decode_output(output):
 def preprocess_image(img):
     img = torch.tensor(img).permute(2,0,1)
     return img.to(device).float()
+def get_image_download_link(img,filename,text): ## Download Image
+    buffered = BytesIO()
+    img.save(buffered, format="JPEG")
+    img_str = base64.b64encode(buffered.getvalue()).decode()
+    href =  f'<a href="data:file/txt;base64,{img_str}" download="{filename}" style="color:red;text-decoration:none">{text} </a>'
+    return href
 
 ####################################################
 st.markdown("<h1 style='text-align: center; color: black;'>Passion Fruit Dissease Detection</h1>", unsafe_allow_html=True)
@@ -95,3 +104,5 @@ if uploaded_file is not None:
     st.caption("Your Image after Detection")
     st.image(cv2.cvtColor(image, cv2.COLOR_BGR2RGB), use_column_width=True)
     plt.imsave('test-a.png',cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
+    result = Image.fromarray(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
+    st.markdown(get_image_download_link(result,uploaded_file.name,'Download '+uploaded_file.name), unsafe_allow_html=True)
