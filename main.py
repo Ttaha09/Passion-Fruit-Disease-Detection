@@ -94,4 +94,4 @@ if uploaded_file is not None:
             image = cv2.putText(image, labels[boxes_], text_point, font, fontScale, color_t, thickness_t, cv2.LINE_AA)
     st.caption("Your Image after Detection")
     st.image(cv2.cvtColor(image, cv2.COLOR_BGR2RGB), use_column_width=True)
-    plt.imsave('test-a.png',image)
+    plt.imsave('test-a.png',cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
