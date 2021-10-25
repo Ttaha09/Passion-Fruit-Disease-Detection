@@ -7,7 +7,6 @@ import cv2
 from torchvision.models.detection.faster_rcnn import FastRCNNPredictor
 import numpy as np
 import matplotlib.pyplot as plt
-from matplotlib.patches import Rectangle
 from torchvision.ops import nms
 import base64
 from io import BytesIO
@@ -48,31 +47,19 @@ def get_image_download_link(img,filename,text): ## Download Image
 ####################################################
 st.markdown("<h1 style='text-align: center; color: black;'>Passion Fruit Dissease Detection</h1>", unsafe_allow_html=True)
 st.markdown('##')
-# expander_bar = st.expander("About")
-# expander_bar.markdown("""
-# * **Python libraries:** base64, pandas, streamlit, numpy, matplotlib, seaborn, BeautifulSoup, requests, json, time
-# * **Data source:** [CoinMarketCap](http://coinmarketcap.com).
-# * **Credit:** Web scraper adapted from the Medium article *[Web Scraping Crypto Prices With Python](https://towardsdatascience.com/web-scraping-crypto-prices-with-python-41072ea5b5bf)* written by [Bryan Feng](https://medium.com/@bryanf).
-# """)
-image = Image.open('passion-fruit.png')
+expander_bar = st.expander("About")
+expander_bar.markdown("""
+* **Python libraries:** streamlit, pytorch, opencv, numpy, base64
+* **Competition:** [Makerere Passion Fruit Disease Detection Challenge](https://zindi.africa/competitions/makerere-passion-fruit-disease-detection-challenge).
+* **Description:** Classify the disease status of a plant given an image of a passion fruit.""")
+image = Image.open('Images/passion-fruit.png')
 st.image(image, use_column_width=True)
 st.markdown("""
     Passion fruit pests and diseases lead to reduced yields and decreased investment in farming over time. Most Ugandan farmers (including passion fruit farmers) are smallholder farmers from low-income households, and do not have sufficient information and means to combat these challenges. Without the required knowledge about the health of their crops, farmers cannot intervene promptly to avoid devastating losses.
 In this challenge, you will classify the disease status of a plant given an image of a passion fruit. """)
 st.markdown('If successful, this model will be deployed as part of a device to aid smallholder farmers in making a prompt diagnosis in their passion fruit crops.')
 
-# def file_selector(folder_path='.'):
-#     filenames = os.listdir(folder_path)
-#     selected_filename = st.selectbox('Select a file', filenames)
-#     return os.path.join(folder_path, selected_filename)
-# if st.checkbox('Select a file in current directory'):
-#     folder_path = '.'
-#     if st.checkbox('Change directory'):
-#         folder_path = st.text_input('Enter folder path', '.')
-#     filename = file_selector(folder_path=folder_path)
-#     st.write('You selected `%s`' % filename)
-#     image1 = Image.open(filename)
-#     st.image(image1, use_column_width=True)
+
 uploaded_file = st.file_uploader('Select an Image', ['png', 'jpg'])
 w,h = 512,512
 if uploaded_file is not None:
@@ -82,11 +69,8 @@ if uploaded_file is not None:
     img = np.array(image1.resize((w, h), resample=Image.BILINEAR))/255.
     img = preprocess_image(img)
     bbs, confs, labels = decode_output(model_(img.unsqueeze(0))[0])
-    # r=Rectangle((data['xmin'][1],data['ymin'][1]), data['width'][1], data['height'][1],facecolor='none',linewidth=1, edgecolor='r')
-    # ax.add_patch(r)
-    plt.imsave('test.png',img.permute(1,2,0).numpy())
-    image = cv2.imread('test.png',cv2.IMREAD_UNCHANGED)
-    # st.write(labels)
+    plt.imsave('Images/test.png',img.permute(1,2,0).numpy())
+    image = cv2.imread('Images/test.png',cv2.IMREAD_UNCHANGED)
     for boxes_ in range(len(bbs)):
         if confs[boxes_]>=0.4:
             start_point =(bbs[boxes_][0],bbs[boxes_][1])
@@ -103,6 +87,5 @@ if uploaded_file is not None:
             image = cv2.putText(image, labels[boxes_], text_point, font, fontScale, color_t, thickness_t, cv2.LINE_AA)
     st.caption("Your Image after Detection")
     st.image(cv2.cvtColor(image, cv2.COLOR_BGR2RGB), use_column_width=True)
-    plt.imsave('test-a.png',cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
     result = Image.fromarray(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
     st.markdown(get_image_download_link(result,uploaded_file.name,'Download '+uploaded_file.name), unsafe_allow_html=True)
