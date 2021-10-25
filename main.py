@@ -19,7 +19,7 @@ def get_model():
     return model
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 model_ = get_model().to(device)
-PATH = './pass-OD1'
+PATH = 'Model/pass-OD1'
 model_.load_state_dict(torch.load(PATH,map_location='cpu'))
 model_.eval()
 
