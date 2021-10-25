@@ -5,6 +5,6 @@ I tried to create an accurate machine learning models capable of localizing and 
 
 ### Connect with me:
 
-[<img align="left" alt="taha tamir | LinkedIn" width="22px" src="https://www.linkedin.com/in/taha-tamir-351272145/" />][linkedin]
+[<img align="left" alt="taha tamir | LinkedIn" width="22px" src="ttps://cdn.jsdelivr.net/npm/simple-icons@v3/icons/linkedin.svg" />][https://www.linkedin.com/in/taha-tamir-351272145/]
 
  
