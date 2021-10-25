@@ -5,6 +5,10 @@ I tried to create an accurate machine learning models capable of localizing and 
 
 ### Connect with me:
 
-[<img align="left" alt="taha tamir | LinkedIn" width="22px" src="ttps://cdn.jsdelivr.net/npm/simple-icons@v3/icons/linkedin.svg" />][https://www.linkedin.com/in/taha-tamir-351272145/]
+<p>
+  <a href="https://www.linkedin.com/in/taha-tamir-351272145/" rel="nofollow noreferrer">
+    <img src="https://i.stack.imgur.com/gVE0j.png" alt="linkedin"> LinkedIn
+  </a> &nbsp;
+ </p>
 
  
