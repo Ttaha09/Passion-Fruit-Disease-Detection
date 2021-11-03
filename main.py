@@ -59,7 +59,7 @@ In this challenge, you will classify the disease status of a plant given an imag
 st.markdown('If successful, this model will be deployed as part of a device to aid smallholder farmers in making a prompt diagnosis in their passion fruit crops.')
 
 
-uploaded_file = st.file_uploader('Select an Image', ['png', 'jpg'])
+uploaded_file = st.file_uploader('Select an Image', ['png'])
 w,h = 512,512
 if uploaded_file is not None:
     image1 = Image.open(uploaded_file)
