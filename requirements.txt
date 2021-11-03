@@ -5,4 +5,3 @@ Pillow==8.4.0
 streamlit==0.88.0
 torch==1.9.1
 torchvision==0.11.1
-~orchvision==0.5.0
