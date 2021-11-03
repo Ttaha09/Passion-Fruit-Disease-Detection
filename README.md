@@ -5,7 +5,7 @@ I tried to create an accurate machine learning models capable of localizing and 
 
 <p>
   <a href="https://share.streamlit.io/ttaha09/passion-fruit-disease-detection/main/main.py" rel="nofollow noreferrer">
-    <img src="Images/Stream_logo.png" alt="linkedin"> Passion Fruit Disease Detection Web App
+    <img src="Images/output-onlinepngtools.png" alt="linkedin"> Passion Fruit Disease Detection Web App
   </a> &nbsp;
  </p>
 
