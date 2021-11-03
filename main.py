@@ -1,6 +1,5 @@
 import streamlit as st
 from PIL import Image
-from matplotlib import cm
 import torch
 import torchvision
 import cv2
