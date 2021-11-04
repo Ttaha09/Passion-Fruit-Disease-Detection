@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 from torchvision.ops import nms
 import base64
 from io import BytesIO
-############ Model Loading ######################
+############ Model Loading #########################
 target2label = {0: 'background',1: 'fruit_woodiness',2: 'fruit_brownspot',3: 'fruit_healthy'}
 def get_model():
     model = torchvision.models.detection.fasterrcnn_resnet50_fpn(pretrained=True)
