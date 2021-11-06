@@ -3,11 +3,18 @@
 I tried to create an accurate machine learning models capable of localizing and identifying multiple Passion Fruits in a single image, and classify the disease status of those fruits. For this task, i used Faster-Rcnn to detect the fruits, and Streamlit to create a web app for this task. This model is quite successful knowing that creating accurate machine learning models capable of localizing and identifying multiple objects in a single image remains a core challenge in computer vision. 
 <p align="center"><img src="Images/ID_0APCI9O1.jpg" width=676 height=450> </p>
 
+### Medel Training:
+
+<p>
+  <a href="https://www.kaggle.com/tahatamir/notebookc3fc057d14/notebook" rel="nofollow noreferrer">
+    <img src="Images/kaggle-icon.png" alt="kaggle"> Model Training
+ </p>
+
 ### Wep App:
 
 <p>
   <a href="https://share.streamlit.io/ttaha09/passion-fruit-disease-detection/main/main.py" rel="nofollow noreferrer">
-    <img src="Images/output-onlinepngtools.png" alt="linkedin"> Passion Fruit Disease Detection
+    <img src="Images/output-onlinepngtools.png" alt="slt"> Passion Fruit Disease Detection (Currently Down)
   </a> &nbsp;
  </p>
 
