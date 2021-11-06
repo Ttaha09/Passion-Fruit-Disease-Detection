@@ -14,7 +14,7 @@ I tried to create an accurate machine learning models capable of localizing and 
 
 <p>
   <a href="https://share.streamlit.io/ttaha09/passion-fruit-disease-detection/main/main.py" rel="nofollow noreferrer">
-    <img src="Images/output-onlinepngtools.png" alt="slt"> Passion Fruit Disease Detection (Currently Down)
+    <img src="Images/output-onlinepngtools.png" alt="slt"> Passion Fruit Disease Detection 
   </a> &nbsp;
  </p>
 
