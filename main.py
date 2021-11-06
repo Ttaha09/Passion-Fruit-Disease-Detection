@@ -20,8 +20,8 @@ def get_model():
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 model_ = get_model().to(device)
 url = 'https://drive.google.com/uc?id=1gejMZCnjdiVXT4KLq9JBLyvkbgyNdmWl'
-gdown.download(url,'./Model/pass-OD1',quiet=False)
-PATH = 'Model/pass-OD1'
+gdown.download(url,quiet=False)
+PATH = 'pass-OD1'
 model_.load_state_dict(torch.load(PATH,map_location='cpu'))
 model_.eval()
 
